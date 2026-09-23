@@ -7,7 +7,7 @@ using System.Text;
 namespace ClinicaOdontologica
 {
     [Table("Especialidades")]
-    internal class Especialidad
+    public class Especialidad
     {
         [Key]
         [Column("id_especialidad")]
