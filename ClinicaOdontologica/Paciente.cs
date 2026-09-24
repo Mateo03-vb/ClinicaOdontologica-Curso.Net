@@ -28,7 +28,7 @@ namespace ClinicaOdontologica
         [Required]
         public string apellidos { get; set; }
 
-        [Column("fecha_nacimiento")]
+        [Column("fecha_nacimiento", TypeName="date")]
         [Required]
         public DateOnly fechaNacimiento { get; set; }
 
@@ -39,5 +39,10 @@ namespace ClinicaOdontologica
         [Column("telefono")]
         [MaxLength(10)]
         public string telefono { get; set; }
+        // relaciones citas
+        List<Cita>? Citas { get; set; } = new List<Cita>();
+        //objeto de navegacion historial medico
+        public virtual HistorialMedico? Historial { get; set; }
+
     }
 }

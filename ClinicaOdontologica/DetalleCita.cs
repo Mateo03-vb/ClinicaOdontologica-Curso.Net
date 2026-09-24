@@ -17,21 +17,22 @@ namespace ClinicaOdontologica
         [Required]
         public decimal costoAplicado { get; set; }
 
-        [Column("observaciones")]
+        
         [MaxLength(200)]
         public string observaciones { get; set; }
 
-        // Claves Foráneas
+        // foráneas
+        [ForeignKey("Cita")]
         [Column("id_cita")]
-        public int idCita { get; set; }
-
-        [ForeignKey("idCita")]
+        public int idCita { get; set; }        
         public virtual Cita Cita { get; set; }
 
-        [Column("id_tratamiento")]
-        public int idTratamiento { get; set; }
 
         [ForeignKey("idTratamiento")]
-        public virtual Tatamiento Tratamiento { get; set; }
+        [Column("id_tratamiento")]
+        public int idTratamiento { get; set; }        
+        public virtual Tratamiento Tratamiento { get; set; }
+
+        
     }
 }

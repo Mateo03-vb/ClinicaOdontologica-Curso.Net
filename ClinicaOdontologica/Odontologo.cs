@@ -34,5 +34,8 @@ namespace ClinicaOdontologica
 
         [ForeignKey("idEspecialidad")]
         public virtual Especialidad Especialidad { get; set; }
+
+        // relacion con citas
+        List<Cita>? Citas { get; set; } = new List<Cita>();
     }
 }

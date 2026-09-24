@@ -13,7 +13,7 @@ namespace ClinicaOdontologica
         [Column("id_receta")]
         public int idReceta { get; set; }
 
-        [Column("fecha_emision")]
+        [Column("fecha_emision", TypeName = "date")]
         [Required]
         public DateTime fechaEmision { get; set; }
 
@@ -21,10 +21,11 @@ namespace ClinicaOdontologica
         public string indicaciones { get; set; }
 
         // foranea
+        [ForeignKey("Cita")]
         [Column("id_cita")]
-        public int idCita { get; set; }
+        public int idCita { get; set; }        
+        public virtual Cita? Cita { get; set; }
 
-        [ForeignKey("idCita")]
-        public virtual Cita Cita { get; set; }
+
     }
 }

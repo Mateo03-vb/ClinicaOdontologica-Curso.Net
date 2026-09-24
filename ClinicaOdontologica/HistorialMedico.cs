@@ -31,5 +31,9 @@ namespace ClinicaOdontologica
 
         [ForeignKey("idPaciente")]
         public virtual Paciente Paciente { get; set; }
+
+        
+        
+
     }
 }

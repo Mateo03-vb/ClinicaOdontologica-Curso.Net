@@ -11,9 +11,9 @@ namespace ClinicaOdontologica
     {
         [Key]
         [Column("id_factura")]
-        public int idFactura { get; set; }
+        public int idFactura { get; set;  }
 
-        [Column("fecha_emision")]
+        [Column("fecha_emision", TypeName = "date")]
         [Required]
         public DateTime fechaEmision { get; set; }
 
@@ -35,10 +35,13 @@ namespace ClinicaOdontologica
         public string estadoPago { get; set; }
 
         // foranea
+        [ForeignKey("Cita")]
         [Column("id_cita")]
-        public int idCita { get; set; }
-
-        [ForeignKey("idCita")]
+        public int idCita { get; set; }                
         public virtual Cita Cita { get; set; }
+
+        
+        
+
     }
 }

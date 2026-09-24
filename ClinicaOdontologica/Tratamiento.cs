@@ -7,7 +7,7 @@ using System.Text;
 namespace ClinicaOdontologica
 {
     [Table("tratamientos")]
-    public class Tatamiento
+    public class Tratamiento
     {
         [Key]
         [Column("id_tratamiento")]
@@ -25,5 +25,12 @@ namespace ClinicaOdontologica
         [Column("duracion_estimada_minutos")]
         [Required]
         public TimeOnly duracionEstimadaMinutos { get; set; }
+
+        //relacion con detallecita
+        List<DetalleCita>? DetallesCita { get; set; } = new List<DetalleCita>();
+
+
+
     }
+
 }
