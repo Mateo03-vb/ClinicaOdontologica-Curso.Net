@@ -39,6 +39,8 @@ namespace ClinicaOdontologica
         [Column("telefono")]
         [MaxLength(10)]
         public string telefono { get; set; }
+
+
         // relaciones citas
         List<Cita>? Citas { get; set; } = new List<Cita>();
         //objeto de navegacion historial medico

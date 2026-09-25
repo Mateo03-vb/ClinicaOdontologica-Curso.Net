@@ -7,7 +7,7 @@ namespace ClinicaOdontologica.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            var connectionString = builder.Configuration.GetConnectionString("ClinicaOdontologicaAPIContext") ?? throw new InvalidOperationException("Connection string 'ClinicaOdontologicaAPIContext' not found.");
+            var connectionString = builder.Configuration.GetConnectionString("Postgres") ?? throw new InvalidOperationException("Connection string 'Postgres' not found.");
 
             builder.Services.AddDbContext<ClinicaOdontologicaAPIContext>(options => options.UseNpgsql(connectionString));
 
