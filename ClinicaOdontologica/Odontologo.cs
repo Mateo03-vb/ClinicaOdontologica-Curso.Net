@@ -36,6 +36,6 @@ namespace ClinicaOdontologica
         public virtual Especialidad? Especialidad { get; set; }
 
         // relacion con citas
-        List<Cita>? Citas { get; set; } = new List<Cita>();
+        public List<Cita>? Citas { get; set; } = new List<Cita>();
     }
 }

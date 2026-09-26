@@ -46,12 +46,12 @@ namespace ClinicaOdontologica
         public virtual Consultorio? Consultorio { get; set; }
 
         //relaciones detallecita
-        List<DetalleCita> DetallesCita { get; set; } = new List<DetalleCita>();
+        public List<DetalleCita>? DetallesCita { get; set; } = new List<DetalleCita>();
 
         // Navegación cita
         public virtual Factura? Factura { get; set; }
 
         // relacion con recetas 
-        List<Receta>? Recetas { get; set; } = new List<Receta>();
+        public List<Receta>? Recetas { get; set; } = new List<Receta>();
     }
 }

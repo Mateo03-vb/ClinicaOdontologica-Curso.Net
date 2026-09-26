@@ -42,7 +42,7 @@ namespace ClinicaOdontologica
 
 
         // relaciones citas
-        List<Cita>? Citas { get; set; } = new List<Cita>();
+        public List<Cita>? Citas { get; set; } = new List<Cita>();
         //objeto de navegacion historial medico
         public virtual HistorialMedico? Historial { get; set; }
 

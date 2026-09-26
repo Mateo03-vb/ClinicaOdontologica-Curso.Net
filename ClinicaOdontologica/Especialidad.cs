@@ -23,6 +23,6 @@ namespace ClinicaOdontologica
         public string descripcion { get; set; }
 
         //relacion con odontologo
-        List<Odontologo>? Odontologos { get; set; } = new List<Odontologo>();
+        public List<Odontologo>? Odontologos { get; set; } = new List<Odontologo>();
     }
 }

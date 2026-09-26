@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="ClinicaOdontologica.API/ClinicaOdontologica.API.csproj" Id="e8aa4697-396c-4727-9f4c-1e067a5a6d8d" />
   <Project Path="ClinicaOdontologica.Consumer/ClinicaOdontologica.Consumer.csproj" Id="be9fd1e6-1755-4d68-9bd2-e22eeeeb0b12" />
+  <Project Path="ClinicaOdontologica.MVC/ClinicaOdontologica.MVC.csproj" Id="e23a35c8-c2f6-47d9-a92f-aca45cddb264" />
   <Project Path="ClinicaOdontologica/ClinicaOdontologica.Modelos.csproj" />
 </Solution>

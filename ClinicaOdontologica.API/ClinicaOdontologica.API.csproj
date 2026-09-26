@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ClinicaOdontologica\ClinicaOdontologica.Modelos.csproj" />
   </ItemGroup>
 

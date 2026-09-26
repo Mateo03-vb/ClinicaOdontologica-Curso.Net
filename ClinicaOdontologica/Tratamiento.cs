@@ -27,7 +27,7 @@ namespace ClinicaOdontologica
         public TimeOnly duracionEstimadaMinutos { get; set; }
 
         //relacion con detallecita
-        List<DetalleCita>? DetallesCita { get; set; } = new List<DetalleCita>();
+        public List<DetalleCita>? DetallesCita { get; set; } = new List<DetalleCita>();
 
 
 

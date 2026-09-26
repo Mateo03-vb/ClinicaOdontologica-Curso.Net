@@ -38,7 +38,7 @@ namespace ClinicaOdontologica
         [ForeignKey("Cita")]
         [Column("id_cita")]
         public int idCita { get; set; }                
-        public virtual Cita Cita { get; set; }
+        public virtual Cita? Cita { get; set; }
 
         
         
