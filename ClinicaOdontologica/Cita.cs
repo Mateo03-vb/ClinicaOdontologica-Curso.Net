@@ -31,25 +31,25 @@ namespace ClinicaOdontologica
         public int idPaciente { get; set; }
 
         [ForeignKey("idPaciente")]
-        public virtual Paciente Paciente { get; set; }
+        public virtual Paciente? Paciente { get; set; }
 
         [Column("id_odontologo")]
         public int idOdontologo { get; set; }
 
         [ForeignKey("idOdontologo")]
-        public virtual Odontologo Odontologo { get; set; }
+        public virtual Odontologo? Odontologo { get; set; }
 
         [Column("id_consultorio")]
         public int idConsultorio { get; set; }
 
         [ForeignKey("idConsultorio")]
-        public virtual Consultorio Consultorio { get; set; }
+        public virtual Consultorio? Consultorio { get; set; }
 
         //relaciones detallecita
         List<DetalleCita> DetallesCita { get; set; } = new List<DetalleCita>();
 
         // Navegación cita
-        public virtual Factura Factura { get; set; }
+        public virtual Factura? Factura { get; set; }
 
         // relacion con recetas 
         List<Receta>? Recetas { get; set; } = new List<Receta>();

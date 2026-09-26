@@ -30,7 +30,7 @@ namespace ClinicaOdontologica
         public int idPaciente { get; set; }
 
         [ForeignKey("idPaciente")]
-        public virtual Paciente Paciente { get; set; }
+        public virtual Paciente? Paciente { get; set; }
 
         
         

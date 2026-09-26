@@ -11,9 +11,9 @@ namespace ClinicaOdontologica.Consumer
 
         public static List<T> GetAll()
         {
-            using (var client = new HttpClient())
+            using (var cliente = new HttpClient())
             {
-                var response = client.GetAsync(Endpoint).Result;
+                var response = cliente.GetAsync(Endpoint).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var json = response.Content.ReadAsStringAsync().Result;
@@ -21,16 +21,17 @@ namespace ClinicaOdontologica.Consumer
                 }
                 else
                 {
-                    throw new Exception($"Error al obtener los datos: {response.ReasonPhrase}");
+                    throw new Exception($"Error: {response.StatusCode} ");
                 }
+
             }
         }
 
-        public static T GetValue(int id)
+        public static T GetById(int id)
         {
-            using (var client = new HttpClient())
+            using (var cliente = new HttpClient())
             {
-                var response = client.GetAsync($"{Endpoint}/{id}").Result;
+                var response = cliente.GetAsync($"{Endpoint}/{id}").Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var json = response.Content.ReadAsStringAsync().Result;
@@ -38,45 +39,61 @@ namespace ClinicaOdontologica.Consumer
                 }
                 else
                 {
-                    throw new Exception($"Error al obtener el dato: {response.ReasonPhrase}");
+                    throw new Exception($"Error: {response.StatusCode} ");
                 }
             }
         }
 
         public static T Create(T item)
         {
-            using (var client = new HttpClient())
+            using (var cliente = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(item);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = client.PostAsync(Endpoint, content).Result;
+                var response = cliente.PostAsync(Endpoint,
+                    new StringContent(JsonConvert.SerializeObject(item),
+                    Encoding.UTF8, "application/json")).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseJson = response.Content.ReadAsStringAsync().Result;
-                    return JsonConvert.DeserializeObject<T>(responseJson);
+                    var json = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<T>(json);
                 }
                 else
                 {
-                    throw new Exception($"Error al crear el dato: {response.ReasonPhrase}");
+                    throw new Exception($"Error: {response.StatusCode} ");
                 }
             }
         }
 
         public static bool Update(int id, T item)
         {
-            using (var client = new HttpClient())
+            using (var cliente = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(item);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = client.PutAsync($"{Endpoint}/{id}", content).Result;
-
+                var response = cliente.PutAsync(
+                    $"{Endpoint}/{id}",
+                    new StringContent(JsonConvert.SerializeObject(item),
+                    Encoding.UTF8, "application/json")).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     return true;
                 }
                 else
                 {
-                    throw new Exception($"Error al actualizar el dato: {response.ReasonPhrase}");
+                    throw new Exception($"Error: {response.StatusCode} ");
+                }
+            }
+        }
+
+        public static bool Delete(int id)
+        {
+            using (var cliente = new HttpClient())
+            {
+                var response = cliente.DeleteAsync($"{Endpoint}/{id}").Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    throw new Exception($"Error: {response.StatusCode} ");
                 }
             }
         }

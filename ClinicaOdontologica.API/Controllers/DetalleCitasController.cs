@@ -69,6 +69,7 @@ public class DetalleCitasController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<DetalleCita>> PostDetalleCita(DetalleCita detallecita)
     {
+
         _context.DetalleCitas.Add(detallecita);
         await _context.SaveChangesAsync();
 

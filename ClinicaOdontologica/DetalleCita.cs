@@ -21,18 +21,21 @@ namespace ClinicaOdontologica
         [MaxLength(200)]
         public string observaciones { get; set; }
 
+        
         // foráneas
-        [ForeignKey("Cita")]
         [Column("id_cita")]
-        public int idCita { get; set; }        
-        public virtual Cita Cita { get; set; }
+        public int idCita { get; set; }
 
+        [ForeignKey("idCita")]
+        public virtual Cita? Cita { get; set; }
+
+
+        [Column("id_tratamiento")]
+        public int idTratamiento { get; set; }
 
         [ForeignKey("idTratamiento")]
-        [Column("id_tratamiento")]
-        public int idTratamiento { get; set; }        
-        public virtual Tratamiento Tratamiento { get; set; }
+        public virtual Tratamiento? Tratamiento { get; set; }
 
-        
+
     }
 }
