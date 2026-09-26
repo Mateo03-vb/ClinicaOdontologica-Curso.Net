@@ -14,6 +14,11 @@ namespace ClinicaOdontologica.MVC
             CRUD<DetalleCita>.Endpoint = "http://localhost:5006/api/DetalleCitas";            
             CRUD<Especialidad>.Endpoint = "http://localhost:5006/api/Especialidades";
             CRUD<Factura>.Endpoint = "http://localhost:5006/api/Facturas";
+            CRUD<HistorialMedico>.Endpoint = "http://localhost:5006/api/HistorialMedicoes";
+            CRUD<Odontologo>.Endpoint = "http://localhost:5006/api/Odontologoes";
+            CRUD<Paciente>.Endpoint = "http://localhost:5006/api/Pacientes";
+            CRUD<Receta>.Endpoint = "http://localhost:5006/api/Recetas";
+            CRUD<Tratamiento>.Endpoint = "http://localhost:5006/api/Tratamientoes";
 
 
             var builder = WebApplication.CreateBuilder(args);

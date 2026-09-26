@@ -1,0 +1,112 @@
+
+using Microsoft.AspNetCore.Mvc;
+using ClinicaOdontologica.Consumer;
+using ClinicaOdontologica;
+
+public class PacientesController : Controller
+{
+    // GET: PACIENTES
+    public ActionResult Index()
+    {
+        var pacientes = CRUD<Paciente>.GetAll();
+        return View(pacientes);
+    }
+
+    // GET: PACIENTES/Details/5
+    public ActionResult Details(int idpaciente)
+    {
+        var paciente = CRUD<Paciente>.GetById(idpaciente);
+        if (idpaciente == null)
+        {
+            return NotFound();
+        }
+        return View(paciente);
+    }
+
+    // GET: PACIENTES/Create
+    public ActionResult Create()
+    {
+        return View();
+    }
+
+    // POST: PACIENTES/Create
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create(Paciente paciente)
+    {
+        try
+        {
+            CRUD<Paciente>.Create(paciente);
+            return RedirectToAction(nameof(Index));
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception (e.g., log it, display an error message, etc.)
+            ModelState.AddModelError("", ex.Message);
+            return View(paciente);
+        }
+    }
+
+    // GET: PACIENTES/Edit/5
+    public ActionResult Edit(int idpaciente)
+    {
+        var paciente = CRUD<Paciente>.GetById(idpaciente);
+        if (paciente == null)
+        {
+            return NotFound();
+        }
+        return View(paciente);
+    }
+
+    // POST: PACIENTES/Edit/5
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Edit(int idpaciente, Paciente paciente)
+    {
+        try
+        {
+            CRUD<Paciente>.Update(idpaciente, paciente);
+            return RedirectToAction(nameof(Index));
+
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception (e.g., log it, display an error message, etc.)
+            ModelState.AddModelError("", ex.Message);
+            return View(paciente);
+        }
+    }
+
+    // GET: PACIENTES/Delete/5
+    public ActionResult Delete(int idpaciente)
+    {
+        var paciente = CRUD<Paciente>.GetById(idpaciente);
+        if (paciente == null)
+        {
+            return NotFound();
+        }
+
+        return View(paciente);
+    }
+
+    // POST: PACIENTES/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public ActionResult Delete(int idpaciente, Paciente paciente)
+    {
+        try
+        {
+            CRUD<Paciente>.Delete(idpaciente);
+            return RedirectToAction(nameof(Index));
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return View(paciente);
+        }
+    }
+}
